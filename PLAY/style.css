@@ -1,0 +1,113 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #ffffff;
+  transition: background-color 0.5s ease;
+}
+
+#game-container {
+  margin-top: 20px;
+}
+#game-area {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.letter {
+  width: 50px;
+  height: 50px;
+  background-color: lightblue;
+  text-align: center;
+  line-height: 50px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: grab;
+  border: 2px solid #000;
+  user-select: none;
+  border-radius: 10px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.letter:hover {
+  transform: rotate(10deg) scale(1.1);
+  background-color: deepskyblue;
+}
+
+#word-image {
+  width: 150px;
+  height: 150px;
+  margin-top: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#countdown {
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: red;
+}
+
+#info-panel {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+#game-over {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #ffcccb;
+  display: inline-block;
+  border: 2px solid #ff0000;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(255, 0, 0, 0.5);
+}
+
+.hidden {
+  display: none;
+}
+
+#restart-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: lightgreen;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#restart-btn:hover {
+  background-color: limegreen;
+}
+
+#play-btn {
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  border: none;
+  color: white;
+  padding: 14px 28px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 114, 255, 0.3);
+}
+
+#play-btn:hover {
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 114, 255, 0.4);
+}
+
+#play-btn:disabled {
+  background: gray;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}

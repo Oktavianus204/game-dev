@@ -1,0 +1,58 @@
+/* Reset dan layout */
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+/* Video latar */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Container utama */
+.container-game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Card transparan */
+.card-transparent {
+  background-color: rgba(255, 255, 255, 0.2); /* transparan */
+  backdrop-filter: blur(8px); /* efek kaca */
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+#question-image {
+  max-width: 60%; /* Batasi lebar maksimal */
+  height: auto; /* Jaga rasio aspek */
+  object-fit: contain; /* Hindari distorsi */
+  margin: 0 auto; /* Pusatkan gambar */
+  display: block;
+}
+
+/* color button input */
+.btn-custom-huruf {
+  background-color: #9b59b6; /* ungu */
+  color: white;
+  border: none;
+}
+
+.btn-custom-huruf:disabled {
+  background-color: #60d056; /* tombol dinonaktifkan tetap abu */
+  color: #653737;
+}

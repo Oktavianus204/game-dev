@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skor Akhir</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+  <body class="bg-light d-flex justify-content-center align-items-center vh-100">
+    <div class="text-center">
+      <h1 class="display-4">🎉 Selamat!</h1>
+      <p class="lead">Kamu telah menyelesaikan semua level.</p>
+      <p class="fs-3">
+        Skor totalmu adalah <span class="fw-bold">⭐ <span id="final-score"></span></span>
+      </p>
+      <a href="index.html" class="btn btn-primary mt-3">Kembali ke Menu Utama</a>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Ambil skor dari localStorage jika kamu menyimpan skor tiap level di sana
+        const easyScore = parseInt(localStorage.getItem('easyScore')) || 0;
+        const mediumScore = parseInt(localStorage.getItem('mediumScore')) || 0;
+        const hardScore = parseInt(localStorage.getItem('hardScore')) || 0;
+        const totalScore = easyScore + mediumScore + hardScore;
+        document.getElementById('final-score').textContent = totalScore;
+      });
+      localStorage.setItem('easyScore', score);
+    </script>
+  </body>
+</html>

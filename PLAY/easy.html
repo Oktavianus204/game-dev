@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Susun Kata - Easy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="easy.css" />
+  </head>
+  <body>
+    <!-- Background Video -->
+    <video autoplay muted loop id="bg-video" class="position-fixed w-100 h-100 object-fit-cover z-n1">
+      <source src="videos/video2.mp4" type="video/mp4" />
+    </video>
+    <!--  -->
+    <!-- Audio untuk lagu latar -->
+    <audio id="bg-music" src="audio/musik1.mp3" loop autoplay></audio>
+    <!-- Audio untuk jawaban salah -->
+    <audio id="wrong-sound" src="audio/musik-salah.mp3"></audio>
+    <!-- Game Container -->
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+      <div class="card card-transparent text-center p-4 w-100" style="max-width: 600px">
+        <h2 class="mb-4">Susun Kata - Easy</h2>
+        <img id="question-image" src="" alt="Gambar Pertanyaan" class="img-fluid mb-6" style="max-height: 200px" />
+        <h4 id="user-answer" class="mb-3"></h4>
+        <div id="letter-buttons" class="d-flex flex-wrap justify-content-center gap-2 mb-5"></div>
+        <p id="countdown" class="mb-1">⏳ Waktu: 30 detik</p>
+        <p id="score" class="mb-3">⭐ Skor: 0</p>
+        <div class="d-flex justify-content-center gap-3 mb-3">
+          <button id="retry-btn" class="btn btn-info">Acak - Kata</button>
+          <button id="next-btn" class="btn btn-danger">Keluar</button>
+        </div>
+      </div>
+    </div>
+    <!-- Modal: Permainan Selesai -->
+    <div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+          <div class="modal-header">
+            <h5 class="modal-title" id="resultModalLabel">🎉 Permainan Selesai!</h5>
+          </div>
+          <div class="modal-body">
+            <p id="final-score">Skor kamu:</p>
+          </div>
+          <div class="modal-footer justify-content-center">
+            <button id="next-level-btn" class="btn btn-primary">Lanjut ke Medium</button>
+            <button class="btn btn-danger" onclick="window.location.href='index.html'">Keluar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal: Timeout -->
+    <div class="modal fade" id="timeoutModal" tabindex="-1" aria-labelledby="timeoutModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+          <div class="modal-header">
+            <h5 class="modal-title" id="timeoutModalLabel">⏰ Waktu Habis!</h5>
+          </div>
+          <div class="modal-body">
+            <p>Waktu kamu habis! Coba soal berikutnya.</p>
+          </div>
+          <div class="modal-footer justify-content-center">
+            <button type="button" class="btn btn-primary" id="next-question-btn" data-bs-dismiss="modal">Lanjutkan</button>
+            <button class="btn btn-danger" onclick="window.location.href='index.html'">Keluar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/easy.js"></script>
+  </body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Susun Kata - Hard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="easy.css" />
+  </head>
+  <body>
+    <!-- Background Video -->
+    <video autoplay muted loop id="bg-video" class="position-fixed w-100 h-100 object-fit-cover z-n1">
+      <source src="videos/video4.mp4" type="video/mp4" />
+    </video>
+    <!--  -->
+    <!-- Audio untuk lagu latar -->
+    <audio id="bg-music" src="audio/musik1.mp3" loop autoplay></audio>
+    <!-- Audio untuk jawaban salah -->
+    <audio id="wrong-sound" src="audio/musik-salah.mp3"></audio>
+    <!-- Game Container -->
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+      <div class="card card-transparent text-center p-4 w-100" style="max-width: 600px">
+        <h2 class="mb-4">Susun Kata - Hard</h2>
+        <img id="question-image" src="" alt="Gambar Pertanyaan" class="img-fluid mb-6" style="max-height: 200px" />
+        <h4 id="user-answer" class="mb-3"></h4>
+        <div id="letter-buttons" class="d-flex flex-wrap justify-content-center gap-2 mb-5"></div>
+
+        <p id="countdown" class="mb-1">⏳ Waktu: 30 detik</p>
+        <p id="score" class="mb-3">⭐ Skor: 0</p>
+
+        <div class="d-flex justify-content-center gap-3 mb-3">
+          <!-- <button id="retry-btn" class="btn btn-warning">Ulangi Kata</button> -->
+          <button id="retry-btn" class="btn btn-info">Acak Kata</button>
+          <button id="next-btn" class="btn btn-danger">Keluar</button>
+        </div>
+      </div>
+    </div>
+    <!-- Modal: Permainan Selesai -->
+    <div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+          <div class="modal-header">
+            <h5 class="modal-title" id="resultModalLabel">🎉 Permainan Selesai!</h5>
+          </div>
+          <div class="modal-body">
+            <p id="final-score">Skor kamu:</p>
+          </div>
+          <div class="modal-footer justify-content-center">
+            <button id="next-level-btn" class="btn btn-primary">Mulai Ulang dari Easy</button>
+            <button class="btn btn-danger" onclick="window.location.href='index.html'">Keluar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal: Timeout -->
+    <div class="modal fade" id="timeoutModal" tabindex="-1" aria-labelledby="timeoutModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+          <div class="modal-header">
+            <h5 class="modal-title" id="timeoutModalLabel">⏰ Waktu Habis!</h5>
+          </div>
+          <div class="modal-body">
+            <p>Waktu kamu habis! Coba soal berikutnya.</p>
+          </div>
+          <div class="modal-footer justify-content-center">
+            <button type="button" class="btn btn-primary" id="next-question-btn" data-bs-dismiss="modal">Lanjutkan</button>
+            <button class="btn btn-danger" onclick="window.location.href='index.html'">Keluar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/hard.js"></script>
+  </body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Level Hard - Susun Kata Benda</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="hard.css" />
+  </head>
+  <body class="bg-success p-5">
+    <div class="container container-game">
+      <section class="card-transparent rounded p-4 mt-3 w-100" style="max-width: 800px">
+        <h2 class="text-center text-danger fw-bold mb-4">🧠 Level Hard: Susun Nama Benda</h2>
+        <div id="game-container" class="mb-4">
+          <div class="text-center mb-3">
+            <img id="question-image" src="" alt="gambar soal" class="img-fluid rounded shadow" style="max-height: 250px" />
+          </div>
+          <div class="d-flex justify-content-center flex-wrap gap-2 mb-3" id="letter-buttons"></div>
+          <div class="text-center mb-3">
+            <h4>Jawaban: <span id="user-answer" class="fw-bold"></span></h4>
+          </div>
+          <div class="text-center mb-3">
+            <h4 id="score">⭐ Skor: 0</h4>
+          </div>
+          <div class="text-center mb-3">
+            <div id="countdown" class="fs-5">⏳ Waktu: 30 detik</div>
+          </div>
+          <div class="d-flex justify-content-center gap-3">
+            <button id="retry-btn" class="btn btn-warning">🔁 Ulangi Jawaban</button>
+            <button id="reset-btn" class="btn btn-secondary">Ulangi</button>
+            <button id="next-btn" class="btn btn-success" style="display: none">Lihat Skor Akhir</button>
+            <a href="index.html" class="btn btn-outline-danger">Keluar</a>
+          </div>
+        </div>
+
+        <!-- Modal -->
+<!-- <div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content text-center">
+              <div class="modal-header">
+                <h5 class="modal-title" id="resultModalLabel">Permainan Selesai</h5>
+              </div>
+              <div class="modal-body">
+                <p id="final-score">Skor kamu: 0</p>
+              </div>
+              <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-success" id="score-page-btn">Lihat Skor Akhir</button>
+                <a href="index.html" class="btn btn-secondary">Keluar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div> -->
+<!-- Video background -->
+<!-- <video autoplay muted loop id="bg-video">
+      <source src="videos/video 1.mp4" type="video/mp4" />
+      Browser kamu tidak mendukung video latar.
+    </video> -->
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/hard.js"></script>
+  </body>
+</html> -->
